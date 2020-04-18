@@ -16,6 +16,9 @@ export default new Vuex.Store({
     },
     setBlogs(state, blogs) {
       state.blogs = blogs
+    },
+    deleteBlogs(state, blogs) {
+      state.blogs.slice()
     }
   },
   actions: {
@@ -33,7 +36,7 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async userBlogs({ commit, dispatch }) {
+    async userBlogs({ commit, dispatch }, ) {
       try {
         let res = await api.get('blogs')
         commit('setBlogs', res.data)
@@ -49,7 +52,14 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-
+    async deleteBlogs({ commit, dispatch }, blogId) {
+      try {
+        let res = await api.delete('blogs/' + blogId)
+        dispatch('deleteBlogs', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
     async addBlog({ commit, dispatch }, newBlog) {
       try {
         let res = await api.post('blogs', newBlog)
