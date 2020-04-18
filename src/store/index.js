@@ -33,6 +33,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+    async userBlogs({ commit, dispatch }) {
+      try {
+        let res = await api.get('blogs')
+        commit('setBlogs', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
     async getBlogs({ commit, dispatch }) {
       try {
         let res = await api.get('blogs')

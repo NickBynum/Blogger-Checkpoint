@@ -1,6 +1,6 @@
 <template>
   <div class="blog m-5 card border-danger text-center p-3">
-    <h2>Title:  <span>{{blogData.title}}</span></h2>
+    <h2>Title: <span>{{blogData.title}}</span></h2>
     <h4>Authored by: {{blogData.creator.name}}</h4>
 
     <!-- Button trigger modal -->
