@@ -28,7 +28,7 @@
             v-model="newBlog.body"
           />
         </div>
-        <button type="submit" class="btn btn-primary" @click="addBlog()">Post Blog</button>
+        <button type="submit" class="btn btn-primary">Post Blog</button>
       </div>
     </div>
     </form>
