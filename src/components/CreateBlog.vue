@@ -1,6 +1,7 @@
 
 <template class="container-fluid">
   <div>
+    <form @submit.prevent="addBlog()">
     <div class="create-blog row justify-content-center">
       <div class="col-6 text-left">
         <div class="form-group">
@@ -27,9 +28,10 @@
             v-model="newBlog.body"
           />
         </div>
-        <button type="button" class="btn btn-primary" @click="addBlog()">Post Blog</button>
+        <button type="submit" class="btn btn-primary" @click="addBlog()">Post Blog</button>
       </div>
     </div>
+    </form>
   </div>
 </template>
 

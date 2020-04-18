@@ -17,9 +17,6 @@ export default new Vuex.Store({
     setBlogs(state, blogs) {
       state.blogs = blogs
     },
-    deleteBlogs(state, blogs) {
-      state.blogs.slice()
-    }
   },
   actions: {
     setBearer({ }, bearer) {
@@ -53,7 +50,7 @@ export default new Vuex.Store({
       }
     },
     async deleteBlogPost({ commit, dispatch }, blogId) {
-      console.log("delete button presses from store");
+      debugger
       try {
         await api.delete('blogs/' + blogId)
         dispatch('getBlogs')
@@ -62,7 +59,6 @@ export default new Vuex.Store({
       }
     },
     async addBlog({ commit, dispatch }, newBlog) {
-      
       try {
         let res = await api.post('blogs', newBlog)
         dispatch('getBlogs')

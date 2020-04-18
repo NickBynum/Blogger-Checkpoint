@@ -32,8 +32,8 @@
             </button>
           </div>
           <div class="modal-body">{{blogData.body}}</div>
-          <button class="btn btn-warning" v-if="blogData.creator.name == profile.name" @click="deleteBlogPost()">Edit</button>
-          <button class="btn btn-warning" v-if="blogData.creator.name == profile.name">Delete</button>
+          <button class="btn btn-warning" v-if="blogData.creator.name == profile.name">Edit</button>
+          <button class="btn btn-warning" v-if="blogData.creator.name == profile.name" @click="deleteBlogPost()">Delete</button>
         </div>
       </div>
     </div>
@@ -56,7 +56,6 @@ export default {
   methods:{
     deleteBlogPost(){
       console.log("delete pressed");
-      
       this.$store.dispatch("deleteBlogPost", this.blogData.id)
     }
   },
