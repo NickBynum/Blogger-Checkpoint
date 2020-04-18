@@ -52,15 +52,17 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-    async deleteBlogs({ commit, dispatch }, blogId) {
+    async deleteBlogPost({ commit, dispatch }, blogId) {
+      console.log("delete button presses from store");
       try {
-        let res = await api.delete('blogs/' + blogId)
-        dispatch('deleteBlogs', res.data)
+        await api.delete('blogs/' + blogId)
+        dispatch('getBlogs')
       } catch (error) {
         console.error(error)
       }
     },
     async addBlog({ commit, dispatch }, newBlog) {
+      
       try {
         let res = await api.post('blogs', newBlog)
         dispatch('getBlogs')
