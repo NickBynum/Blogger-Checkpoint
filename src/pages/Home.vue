@@ -1,20 +1,27 @@
-<template>
-  <div class="home">
-    <input
-      v-model="search"
-      id="sortBlogs"
-      class="form-control form-control-sm ml-3 w-75"
-      type="text"
-      placeholder="Find posts by user!"
-      aria-label="Search"
-    />
-    <div class="row justify-content-center">
-      <div class="col-6">
-        </div>
+<template class="container-fluid">
+  <div class="home row justify-content-center">
+    <div class="col-3">
+      <form class="form-group">
+        <label for="search">Search by Author: </label>
+        <input
+          v-model="search"
+          id="sortBlogs"
+          class="form-control"
+          type="text"
+          placeholder="Find posts by user!"
+          aria-label="Search"
+        />
+      </form>
+    </div>
+
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <div class="col-6"></div>
         <div class="allBlogs row">
           <div class="col-12 m-3">
             <blog v-for="blog in sortBlogs" :blogData="blog" :key="blog._id"></blog>
           </div>
+        </div>
       </div>
     </div>
   </div>

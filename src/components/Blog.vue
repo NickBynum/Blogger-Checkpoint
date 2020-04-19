@@ -34,15 +34,15 @@
             </div>
             <div v-if="!editing" class="modal-body">{{blogData.body}}</div>
             <button
-              class="btn btn-warning"
+              class="btn btn-warning m-2"
               v-if="blogData.creator.name == profile.name"
               @click="editing = true">Edit</button>
             <button
-              class="btn btn-warning"
+              class="btn btn-warning m-2"
               v-if="blogData.creator.name == profile.name"
               @click.prevent="deleteBlogPost()"
             >Delete</button>
-            <div class="m-5">Display comments section</div>
+            <div class="m-5">{{blogData.body.comments}}</div>
             <div>
               <form class="form-group" action="submit">
                 <input
