@@ -44,8 +44,9 @@ export default {
       return this.$store.state.blogs;
     },
     sortBlogs: function() {
+      let searchRes = this.$store.state.blogs.toLowerCase
       return this.$store.state.blogs.filter(email => {
-        return email.creatorEmail.match(this.search);
+        return email.creatorEmail.match(this.search.toLowerCase());
       });
     }
   },
