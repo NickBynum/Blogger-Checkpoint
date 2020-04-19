@@ -33,12 +33,12 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async userBlogs({ commit, dispatch }, ) {
+    async addBlog({ commit, dispatch }, newBlog) {
       try {
-        let res = await api.get('blogs')
-        commit('setBlogs', res.data)
+        let res = await api.post('blogs', newBlog)
+        dispatch('getBlogs')
       } catch (error) {
-        console.error(error)
+        console.log(error)
       }
     },
     async getBlogs({ commit, dispatch }) {
@@ -49,8 +49,24 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+    async userBlogs({ commit, dispatch }, ) {
+      try {
+        let res = await api.get('blogs')
+        commit('setBlogs', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async editBlogPost({ commit, dispatch }, blogId) {
+      try {
+        await api.put('blogs/' + blogId.id, blogId)
+        commit('getBlogs')
+      }
+      catch (error) {
+        console.error(error)
+      }
+    },
     async deleteBlogPost({ commit, dispatch }, blogId) {
-      debugger
       try {
         await api.delete('blogs/' + blogId)
         dispatch('getBlogs')
@@ -58,14 +74,14 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-    async addBlog({ commit, dispatch }, newBlog) {
-      try {
-        let res = await api.post('blogs', newBlog)
-        dispatch('getBlogs')
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    // async addComment({ commit, dispatch }, newComment) {
+    //   try {
+    //     let res = await api.post('blogs', newComment)
+    //     dispatch('getBlogs')
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
   },
 },
 );

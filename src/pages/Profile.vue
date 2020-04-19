@@ -6,7 +6,6 @@
     <p>{{ profile.email }}</p>
 
     <CreateBlog v-if="$auth.isAuthenticated" />
-    <small v-if="!$auth.isAuthenticated" class="text-danger">You must be logged in to create a blog!</small>
     <blog v-for="blog in userBlogs" :blogData="blog" :key="blog._id"></blog>
   </div>
 </template>

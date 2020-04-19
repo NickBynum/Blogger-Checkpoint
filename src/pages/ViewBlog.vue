@@ -1,33 +1,25 @@
 <template>
-  <div class="home">
-    <input
-      v-model="search"
-      id="sortBlogs"
-      class="form-control form-control-sm ml-3 w-75"
-      type="text"
-      placeholder="Find posts by user!"
-      aria-label="Search"
-    />
-    <div class="row justify-content-center">
+  <div class="ViewBlog">
+    <div class="row">
       <div class="col-6">
-        </div>
         <div class="allBlogs row">
-          <div class="col-12 m-3">
-            <blog v-for="blog in sortBlogs" :blogData="blog" :key="blog._id"></blog>
           </div>
+        </div>
+          <div class="col-6 m-3">
+            <blog v-for="blog in sortBlogs" :blogData="blog" :key="blog._id"></blog>
       </div>
     </div>
+
   </div>
 </template>
+
 
 <script>
 import Blog from "../components/Blog.vue";
 export default {
-  name: "home",
-  data() {
-    return {
-      search: ""
-    };
+  name: 'ViewBlog',
+  data(){
+    return {}
   },
   created() {
     this.$store.dispatch("getBlogs");
@@ -45,5 +37,10 @@ export default {
   components: {
     Blog
   }
-};
+}
 </script>
+
+
+<style scoped>
+
+</style>
