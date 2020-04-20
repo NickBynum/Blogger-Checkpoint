@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     addComment() {
-      debugger
       this.newComment.blogId = this.blog.id;
       this.newComment.creatorEmail = this.blog.creatorEmail;
       this.$store.dispatch("addComment", this.newComment);

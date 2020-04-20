@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     deleteComment() {
-      this.$store.dispatch("deleteComment", this.commentData.id);
+      this.$store.dispatch("deleteComment", this.commentData);
     },
     editComment() {
       this.$store.dispatch("editComment", this.commentData);

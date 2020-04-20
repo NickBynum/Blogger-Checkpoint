@@ -71,8 +71,6 @@ export default {
   },
   computed: {
     blogDetails() {
-      console.log("blogDetails", this.$store.state.activeBlog.blog);
-
       return this.$store.state.activeBlog.blog;
     },
     commentDetails() {
