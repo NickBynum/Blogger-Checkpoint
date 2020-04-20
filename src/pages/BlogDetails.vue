@@ -1,12 +1,12 @@
 <template>
   <div class="blogDetails container-fluid justify-content-center">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-9 m-5 card border-danger text-center p-3">
-        <div class>
-          <p>{{blogDetails.creator.name}}</p>
-        </div>
         <div v-if="!editing">
           <h5>{{blogDetails.body}}</h5>
+        <div class>
+          <p>- {{blogDetails.creator.name}}</p>
+        </div>
           <div>
             <button
               class="btn btn-warning m-2"
@@ -19,7 +19,6 @@
               @click="deleteBlogPost()"
             >Delete</button>
           </div>
-          <hr />
           <comment v-for="comment in commentDetails" :commentData="comment" :key="comment.id"></comment>
           <addComment></addComment>
           <hr />
