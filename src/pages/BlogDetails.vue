@@ -1,19 +1,22 @@
 <template>
-  <div class="blogDetails">
-    <div v-if="!editing">
+  <div class="blog-details">
+    <div><h3>{{blogDetails.body}}
+      </h3>
+      <p>{{blogDetails.creator.name}}</p></div>
+    <!-- <div v-if="!editing">
       <h5>{{blogData}}</h5>
-      <div v-if="!editing">{{blogData.body}}</div>
-      <!-- <button
+      <div v-if="!editing">{{blogDetails.body}}</div>
+      <button
         class="btn btn-warning m-2"
         v-if="blogData.creator.name == profile.name"
         @click="editing = true"
-      >Edit</button> -->
+      >Edit</button>
       <button
         class="btn btn-warning m-2"
         v-if="blogData.creator.name == profile.name"
         @click.prevent="deleteBlogPost()"
       >Delete</button>
-      <div class="m-5">{{blogData.body.comments}}</div>
+      <div class="m-5">{{commentDetails.body.comments}}</div>
       <div>
         <form class="form-group" action="submit">
           <input
@@ -47,7 +50,7 @@
         </form>
       </div>
     </div>
-    <!--end of reveal area-->
+    end of reveal area
     <div v-else>
       <form>
         <div class="create-blog row mx-auto">
@@ -72,7 +75,7 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -86,17 +89,19 @@ export default {
   },
   created() {
     this.$store.dispatch("getBlog", this.$route.params.blogId);
-    this.$store.dispatch("getBlog", this.activeBlog.id);
-    // this.$store.dispatch('getProfile')
+    // this.$store.dispatch("getBlog", this.blogData.id);
+    // this.$store.dispatch('getBlog')
   },
   computed: {
-    BlogDetails() {
+    blogDetails() {
+      console.log("blogDetails", this.$store.state.activeBlog.blog);
+      
       return this.$store.state.activeBlog.blog;
     },
-    CommentDetails() {
+    commentDetails() {
       return this.$store.state.activeBlog.comments;
     },
-    Profile() {
+    profile() {
       return this.$store.state.profile;
     }
   },

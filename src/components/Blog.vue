@@ -40,7 +40,7 @@ export default {
         name: "BlogDetails",
         params: { blogId: this.blogData.id }
       });
-      console.log("console params" + blogId);
+      // console.log("console params" + blogId);
     },
   //   components: {}
   }
