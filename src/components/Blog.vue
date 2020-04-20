@@ -27,13 +27,13 @@ export default {
     }
   },
   methods: {
-    deleteBlogPost() {
-      this.$store.dispatch("deleteBlogPost", this.blogData.id);
-    },
-    editBlogPost() {
-      this.$store.dispatch("editBlogPost", this.blogData);
-      this.editing = false;
-    },
+  //   deleteBlogPost() {
+  //     this.$store.dispatch("deleteBlogPost", this.blogData.id);
+  //   },
+  //   editBlogPost() {
+  //     this.$store.dispatch("editBlogPost", this.blogData);
+  //     this.editing = false;
+  //   },
     getBlogDetails() {
       this.$store.commit("setActiveBlog", {});
       this.$router.push({

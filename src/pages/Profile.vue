@@ -27,7 +27,8 @@ export default {
       return this.$store.state.blogs.filter(email => {
         return email.creatorEmail.match(this.profile.email);
       });
-    }
+    },
+    
   },
   created() {
     this.$store.dispatch("getProfile");
