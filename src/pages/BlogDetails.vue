@@ -3,6 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-9 m-5 card border-danger text-center p-3">
         <div v-if="!editing">
+          <h3>{{blogDetails.title}}</h3>
+          <hr>
           <h5>{{blogDetails.body}}</h5>
         <div class>
           <p>- {{blogDetails.creator.name}}</p>
