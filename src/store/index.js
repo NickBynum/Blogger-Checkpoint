@@ -62,6 +62,14 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+    // async userComments({ commit, dispatch }, ) {
+    //   try {
+    //     let res = await api.get('comments')
+    //     commit('setComments', res.data)
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // },
     async editBlogPost({ commit, dispatch }, blogId) {
       try {
         await api.put('blogs/' + blogId.id, blogId)
@@ -87,14 +95,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    // async addComment({ commit, dispatch }, newComment) {
-      //   try {
-        //     let res = await api.post('blogs', newComment)
-    //     dispatch('getBlogs')
-    //   } catch (error) {
-      //     console.log(error)
-    //   }
-    // }
+    async addComment({ commit, dispatch }, newComment) {
+        try {
+            let res = await api.post('comments', newComment)
+        dispatch('getBlog', newComment.blogId)
+      } catch (error) {
+          console.log(error)
+      }
+    }
   },
 },
 );

@@ -4,9 +4,9 @@
     <h1>Welcome {{ profile.name }}</h1>
     <img class="rounded-circle" :src="profile.picture" alt />
     <p>{{ profile.email }}</p>
-
     <CreateBlog v-if="$auth.isAuthenticated" />
     <blog v-for="blog in userBlogs" :blogData="blog" :key="blog._id"></blog>
+    <!-- <comment v-for="comment in userComments" :commentData="comment" :key="comment.id"></comment> -->
   </div>
 </template>
 
@@ -28,7 +28,11 @@ export default {
         return email.creatorEmail.match(this.profile.email);
       });
     },
-    
+    // userComments: function() {
+    //   return this.$store.state.blogs.comments.filter(email => {
+    //     return email.creatorEmail.match(this.profile.email);
+    //   })
+    // }
   },
   created() {
     this.$store.dispatch("getProfile");
